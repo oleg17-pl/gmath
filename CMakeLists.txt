@@ -16,9 +16,12 @@ add_library (gmath INTERFACE
     ${VEC_PATH}/classes/vec2.hpp
     ${VEC_PATH}/classes/vec3.hpp
     ${VEC_PATH}/classes/vec4.hpp
+
+    ${VEC_PATH}/oper/gen.hpp
+    ${VEC_PATH}/oper/operators.hpp
+    ${VEC_PATH}/funcs.hpp
+
     ${VEC_PATH}/vec.hpp
 
-    ${VEC_PATH}/funcs/f.hpp
+    ./constants.hpp
 )
-
-target_include_directories(gmath INTERFACE .)

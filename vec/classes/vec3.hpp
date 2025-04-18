@@ -3,21 +3,21 @@
 
 #include "vec_base.hpp"
 
-template <class T = vec_default_type>
+template <typename T = vec_default_type>
 struct vec3 final : vec_base<3, T> {
 
-    vec3(T x = 0, T y = 0, T z = 0) {
+    vec3(T x = 0.0f, T y = 0.0f, T z = 0.0f) {
         this->els = {x, y, z};
     }
 
-    [[ nodiscard ]] T &x() const { return this->els.at(0); }
-    [[ nodiscard ]] T &y() const { return this->els.at(1); }
-    [[ nodiscard ]] T &z() const { return this->els.at(2); }
+    [[ nodiscard ]] T &x() { return this->els.at(0); }
+    [[ nodiscard ]] T &y() { return this->els.at(1); }
+    [[ nodiscard ]] T &z() { return this->els.at(2); }
 
     vec3<T> &operator=(const vec_base<3, T> &other) {
         this->els = other.els;
         return *this;
-    };
+    }
 };
 
 #endif // VEC3_HPP

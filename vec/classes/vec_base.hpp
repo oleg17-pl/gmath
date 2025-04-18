@@ -7,7 +7,7 @@
 
 using vec_default_type = float;
 
-template <std::size_t n, class T = vec_default_type>
+template <std::size_t n, typename T = vec_default_type>
 struct vec_base {
 protected:
     std::array<T, n> els;
@@ -23,9 +23,19 @@ public:
     }
 
     [[ nodiscard ]]
+    const T *value_ptr() const {
+        return els.data();
+    }
+
+    [[ nodiscard ]]
+    std::size_t getSize() const {
+        return n;
+    }
+
+    [[ nodiscard ]]
     float getLen() const {
         T sum_els_sqrs{};
-        for (const T &el : els) {
+        for (T el : els) {
             sum_els_sqrs += el * el;
         }
         return sqrt(sum_els_sqrs);
@@ -34,7 +44,7 @@ public:
     T &operator[](const std::size_t index) {
         if (index >= n) {
             const char msg[]{
-                "Index of vec is OOB! vec_base::operator[]::index"
+                "Index of vec is out of range! vec_base::operator[]::index"
             };
             throw std::out_of_range(msg);
         }
