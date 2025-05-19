@@ -1,8 +1,9 @@
 #ifndef GMATH_VEC_BASE_H
 #define GMATH_VEC_BASE_H
 
-#include <array>
+#include <ostream>
 #include <stdexcept>
+#include <array>
 
 #include "../../../setup.hpp"
 
@@ -17,7 +18,7 @@ using vec_data_t = std::array<T, n>;
 
 template <length_t n, typename T = vec_default_type>
 struct vec_base {
-private:
+protected:
     vec_data_t<n, T> m_els;
 public:
 
@@ -64,7 +65,23 @@ public:
     const T &operator[](const std::size_t index) const {
         return at(index);
     }
+
+    vec_base<n, T> &operator+=(const vec_base<n, T> &other);
+    vec_base<n, T> &operator-=(const vec_base<n, T> &other);
+    vec_base<n, T> &operator*=(const double other);
+    vec_base<n, T> &operator/=(const double other);
+
+    [[ nodiscard ]] vec_base<n, T> operator+(const vec_base<n, T> &other);
+    [[ nodiscard ]] vec_base<n, T> operator-(const vec_base<n, T> &other);
+    [[ nodiscard ]] vec_base<n, T> operator*(const double other);
+    [[ nodiscard ]] vec_base<n, T> operator/(const double other);
+
+    [[ nodiscard ]] bool operator==(const vec_base<n, T> &other);
+    [[ nodiscard ]] bool operator!=(const vec_base<n, T> &other);
 };
+
+template <length_t n, typename T>
+std::ostream &operator<<(std::ostream &os, const vec_base<n, T> &vec);
 
 }
 

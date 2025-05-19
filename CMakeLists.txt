@@ -23,8 +23,7 @@ add_library(gmath INTERFACE
     ${VEC_PATH}/classes/vec3.hpp
     ${VEC_PATH}/classes/vec4.hpp
 
-    ${VEC_PATH}/oper/gen.hpp
-    ${VEC_PATH}/oper/operators.hpp
+    ${VEC_PATH}/operators.hpp
     ${VEC_PATH}/funcs.hpp
 
     #####################################

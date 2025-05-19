@@ -3,12 +3,8 @@
 
 #include <cmath>
 
-#include "../../setup.hpp"
 #include "../../constants.hpp"
-
-#include "classes/vec2.hpp"
-#include "classes/vec3.hpp"
-#include "classes/vec4.hpp"
+#include "classes/vec_base.hpp"
 
 GMATH_START
 
@@ -24,20 +20,14 @@ template <std::size_t n, typename T>
     return sqrt(sum_els_sqrs);
 }
 
-#define GENERATE_NORMALIZE_FUNC(vec_size_num) \
-\
-    template <typename T> \
-    [[ nodiscard ]] vec##vec_size_num<T> normalize(const vec##vec_size_num<T> &vec) { \
-        float len{ getLen(vec) }; \
-        if (len > Constants::EPS) { \
-            return vec / len;  \
-        } \
-        return vec##vec_size_num<T>{}; \
+template <std::size_t n, typename T> \
+[[ nodiscard ]] vec_base<n, T> normalize(const vec_base<n, T> &vec) {
+    float len{ getLen(vec) };
+    if (len > Constants::EPS) {
+        return vec / len;
     }
-
-GENERATE_NORMALIZE_FUNC(2)
-GENERATE_NORMALIZE_FUNC(3)
-GENERATE_NORMALIZE_FUNC(4)
+    return vec_base<n, T>{};
+}
 
 template <std::size_t n, typename T>
 [[ nodiscard ]] T dot(const vec_base<n, T> &first, const vec_base<n, T> &second) {

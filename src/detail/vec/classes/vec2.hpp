@@ -16,6 +16,13 @@ struct vec2 final : vec_base<2, T> {
 
     [[ nodiscard ]] T &x() { return this->at(0); }
     [[ nodiscard ]] T &y() { return this->at(1); }
+
+    vec2<T> operator=(const vec_base<2, T> &other) {
+        for (std::size_t i{}; i < 2; ++i) {
+            this->at(i) = other.at(i);
+        }
+        return *this;
+    }
 };
 
 }

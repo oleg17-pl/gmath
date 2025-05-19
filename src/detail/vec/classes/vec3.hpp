@@ -17,6 +17,13 @@ struct vec3 final : vec_base<3, T> {
     [[ nodiscard ]] T &x() { return this->at(0); }
     [[ nodiscard ]] T &y() { return this->at(1); }
     [[ nodiscard ]] T &z() { return this->at(2); }
+
+    vec3<T> operator=(const vec_base<3, T> &other) {
+        for (std::size_t i{}; i < 3; ++i) {
+            this->at(i) = other.at(i);
+        }
+        return *this;
+    }
 };
 
 }
