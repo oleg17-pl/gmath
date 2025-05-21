@@ -80,9 +80,6 @@ public:
     [[ nodiscard ]] bool operator!=(const vec_base<n, T> &other);
 };
 
-template <length_t n, typename T>
-std::ostream &operator<<(std::ostream &os, const vec_base<n, T> &vec);
-
 }
 
 GMATH_END

@@ -1,12 +1,8 @@
 #ifndef GMATH_MAT_FUNCS_HPP
 #define GMATH_MAT_FUNCS_HPP
 
-#include "../../setup.hpp"
+#include "classes/mat_base.hpp"
 #include "../../constants.hpp"
-
-#include "classes/mat2x2.hpp"
-#include "classes/mat3x3.hpp"
-#include "classes/mat4x4.hpp"
 
 GMATH_START
 

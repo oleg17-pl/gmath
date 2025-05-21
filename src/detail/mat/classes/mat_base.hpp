@@ -55,6 +55,16 @@ public:
     const T &at(const std::size_t y, const std::size_t x) const {
         return m_els[y][x];
     }
+
+    mat_base<rows, colums, T> &operator+=(const mat_base<rows, colums, T> &other);
+    mat_base<rows, colums, T> &operator-=(const mat_base<rows, colums, T> &other);
+    mat_base<rows, colums, T> &operator*=(const double other);
+    mat_base<rows, colums, T> &operator/=(const double other);
+
+    [[ nodiscard ]] mat_base<rows, colums, T> operator+(const mat_base<rows, colums, T> &other);
+    [[ nodiscard ]] mat_base<rows, colums, T> operator-(const mat_base<rows, colums, T> &other);
+    [[ nodiscard ]] mat_base<rows, colums, T> operator*(const double other);
+    [[ nodiscard ]] mat_base<rows, colums, T> operator/(const double other);
 };
 
 }

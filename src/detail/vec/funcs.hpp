@@ -3,15 +3,15 @@
 
 #include <cmath>
 
-#include "../../constants.hpp"
 #include "classes/vec_base.hpp"
+#include "../../constants.hpp"
 
 GMATH_START
 
 namespace Vec {
 
 template <std::size_t n, typename T>
-[[ nodiscard ]] float getLen(const vec_base<n, T> &vec) {
+[[ nodiscard ]] float get_len(const vec_base<n, T> &vec) {
     T sum_els_sqrs{};
     for (std::size_t i{}; i < vec.getSize(); ++i) {
         const T el{ vec[i] };
@@ -22,7 +22,7 @@ template <std::size_t n, typename T>
 
 template <std::size_t n, typename T> \
 [[ nodiscard ]] vec_base<n, T> normalize(const vec_base<n, T> &vec) {
-    float len{ getLen(vec) };
+    float len{ get_len(vec) };
     if (len > Constants::EPS) {
         return vec / len;
     }
