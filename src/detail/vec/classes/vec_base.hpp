@@ -24,14 +24,14 @@ public:
 
     vec_base() : m_els{} {
         if (n < 2) {
-            const char msg[]{
+            static const char msg[]{
                 "Count of vector elements must be >= 2! vec_base::n"
             };
             throw std::invalid_argument(msg);
         }
     }
 
-    explicit vec_base(const vec_data_t<n, T> &els) : vec_base() {
+    vec_base(const vec_data_t<n, T> &els) : vec_base() {
         m_els = els;
     }
 

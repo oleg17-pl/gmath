@@ -1,22 +1,12 @@
-#ifndef GMATH_MAT_FUNCS_HPP
-#define GMATH_MAT_FUNCS_HPP
+#ifndef GMATH_MAT_BASE_FUNCS_HPP
+#define GMATH_MAT_BASE_FUNCS_HPP
 
-#include "classes/mat_base.hpp"
-#include "../../constants.hpp"
+#include "../classes/mat_base.hpp"
+#include "../../../constants.hpp"
 
 GMATH_START
 
 namespace Mat {
-
-template <length_t size, typename T = default_mat_type>
-[[ nodiscard ]]
-mat_base<size, size, T> get_single() {
-    mat_base<size, size, T> mat;
-    for (std::size_t i{}; i < size; ++i) {
-        mat.at(i, i) = 1;
-    }
-    return mat;
-}
 
 template <length_t rows, length_t colums, typename T>
 [[ nodiscard ]]
@@ -122,4 +112,4 @@ mat_base<size, size, T> inverse(const mat_base<size, size, T> &mat) {
 
 GMATH_END
 
-#endif // GMATH_MAT_FUNCS_HPP
+#endif // GMATH_MAT_BASE_FUNCS_HPP

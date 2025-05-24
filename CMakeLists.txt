@@ -34,7 +34,8 @@ add_library(gmath INTERFACE
     ${MAT_PATH}/classes/mat4x4.hpp
 
     ${MAT_PATH}/operators.hpp
-    ${MAT_PATH}/funcs.hpp
+    ${MAT_PATH}/funcs/base_funcs.hpp
+    ${MAT_PATH}/funcs/special_funcs.hpp
 
     #####################################
 

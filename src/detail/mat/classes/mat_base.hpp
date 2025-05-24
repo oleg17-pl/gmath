@@ -20,10 +20,9 @@ struct mat_base {
 private:
     mat_data_t<rows, colums, T> m_els;
 public:
-
     mat_base() : m_els{} {
         if (rows < 2 || colums < 2) {
-            const char msg[]{
+            static const char msg[]{
                 "Rows and colums quantity must be >= 2! mat_base::rows, mat_base::colums"
             };
             throw std::invalid_argument(msg);
@@ -40,6 +39,21 @@ public:
                 el = val;
             }
         }
+    }
+
+    [[ nodiscard ]]
+    static mat_base<rows, colums, T> get_single() {
+        if (rows != colums) {
+            static const char msg[]{
+                "Cant get non square single matrix! mat_base::get_single()"
+            };
+            throw std::domain_error(msg);
+        }
+        mat_base<rows, colums, T> mat;
+        for (std::size_t i{}; i < rows; ++i) {
+            mat.at(i, i) = 1;
+        }
+        return mat;
     }
 
     std::array<length_t, 2> getSize() const {
