@@ -8,6 +8,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(INCLUDE_PATH ./include)
 set(SRC_PATH ./src)
 
+set(ANGLES_PATH ${SRC_PATH}/detail/angles)
 set(MAT_PATH ${SRC_PATH}/detail/mat)
 set(VEC_PATH ${SRC_PATH}/detail/vec)
 
@@ -15,6 +16,15 @@ add_library(gmath INTERFACE
 
     ${SRC_PATH}/setup.hpp
     ${SRC_PATH}/constants.hpp
+
+    #####################################
+
+    ${ANGLES_PATH}/classes/angle_base.hpp
+    ${ANGLES_PATH}/classes/radians.hpp
+    ${ANGLES_PATH}/classes/degrees.hpp
+
+    ${ANGLES_PATH}/operators.hpp
+    ${ANGLES_PATH}/funcs.hpp
 
     #####################################
 
@@ -39,6 +49,7 @@ add_library(gmath INTERFACE
 
     #####################################
 
+    ${SRC_PATH}/angles.hpp
     ${INCLUDE_PATH}/vec.hpp
     ${INCLUDE_PATH}/mat.hpp
 )

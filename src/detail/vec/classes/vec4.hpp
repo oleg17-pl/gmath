@@ -14,6 +14,11 @@ struct vec4 final : vec_base<4, T> {
     explicit vec4(T val) : vec_base<4, T>(val) {}
     vec4() : vec4(0) {}
 
+    [[ nodiscard ]]
+    static vec4<T> get_single() {
+        return vec4{ 0, 0, 0, 1 };
+    }
+
     [[ nodiscard ]] T &x() { return this->at(0); }
     [[ nodiscard ]] T &y() { return this->at(1); }
     [[ nodiscard ]] T &z() { return this->at(2); }

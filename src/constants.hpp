@@ -8,6 +8,7 @@ GMATH_START
 namespace Constants {
 
 constexpr double EPS{ 0.00000000001 };
+constexpr double PI{  3.14159265358979323846264338327950288 };
 
 }
 

@@ -21,7 +21,6 @@ struct vec_base {
 protected:
     vec_data_t<n, T> m_els;
 public:
-
     vec_base() : m_els{} {
         if (n < 2) {
             static const char msg[]{
